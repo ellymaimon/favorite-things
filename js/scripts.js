@@ -1,20 +1,19 @@
 $(function(){
 
+  $("form").submit(function(event){
+    event.preventDefault();
+    var userFood = $("input#food").val();
+    var userColor = $("input#color").val();
+    var userAnimal = $("input#animal").val();
+    var userCity = $("input#city").val();
+    var userResponses =[userFood, userAnimal, userColor, userCity];
+    var newArray = [];
 
-$("form").submit(function(event){
-  var userFood = $("input#food").val();
-  var userColor = $("input#color").val();
-  var userAnimal = $("input#animal").val();
-  var userCity = $("input#city").val();
-  var userResponses =[userFood, userAnimal, userColor, userCity];
+    newArray.push(userResponses[1], userResponses[0], userResponses[2]);
 
-  var newArray = [];
-
-  newArray.push(userResponses[1], userResponses[0], userResponses[2]);
-  alert(newArray);
-
-
-  event.preventDefault();
-});
+    $("ul").append("<li>" + newArray[0] +"</li>");
+    $("ul").append("<li>" + newArray[1] +"</li>");
+    $("ul").append("<li>" + newArray[2] +"</li>");
+  });
 
 });
